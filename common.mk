@@ -175,7 +175,8 @@ PRODUCT_PACKAGES += \
 
 # Device Settings
 PRODUCT_PACKAGES += \
-    DeviceSettings
+    DeviceSettings \
+    KeyHandler
 
 # Display
 PRODUCT_PACKAGES += \
