@@ -59,6 +59,8 @@ TARGET_USES_UEFI := true
 
 BUILD_BROKEN_DUP_RULES := true
 
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
@@ -68,7 +70,7 @@ BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_ena
 BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.usbconfigfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
 BOARD_KERNEL_CMDLINE += loop.max_part=16
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
@@ -102,7 +104,7 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_SRS_TRUEMEDIA := false
 BOARD_SUPPORTS_QAHW := false
 TARGET_PROVIDES_AUDIO_EXTNS := true
-USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
