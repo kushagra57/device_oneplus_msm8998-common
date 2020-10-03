@@ -168,6 +168,11 @@ PRODUCT_PACKAGES += \
 # Component overrides
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+    
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 
 # Display
 PRODUCT_PACKAGES += \
@@ -446,6 +451,7 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     device/oneplus/msm8998-common
+
 
 # Tetheroffload
 PRODUCT_PACKAGES += \
