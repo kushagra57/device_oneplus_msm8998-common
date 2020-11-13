@@ -89,6 +89,11 @@
     <string name="notification_slider_mode_none">Normal</string>
     <string name="buttons_dashboard_summary">Alert Slider Settings</string>
 
+    <!-- Back and Recents -->
+    <string name="buttons_title">Buttons</string>
+    <string name="swap_back_recents_summary"></string>
+    <string name="swap_back_recents_title">Swap back and recents button</string>
+    
     <!-- Vibration control -->
     <string name="category_vibrator">Vibrator</string>
     <string name="vib_strength_title_head">System Strength</string>
