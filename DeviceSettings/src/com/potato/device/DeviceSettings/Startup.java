@@ -26,7 +26,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.preference.PreferenceManager;
 
-import com.potato.device.DeviceSettings.TouchscreenGestureSettings;
+//import com.potato.device.DeviceSettings.TouchscreenGestureSettings;
 
 public class Startup extends BroadcastReceiver {
 
@@ -36,7 +36,7 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
         boolean enabled = false;
-        TouchscreenGestureSettings.MainSettingsFragment.restoreTouchscreenGestureStates(context);
+  //      TouchscreenGestureSettings.MainSettingsFragment.restoreTouchscreenGestureStates(context);
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
         restore(SRGBModeSwitch.getFile(), enabled);
@@ -55,6 +55,11 @@ public class Startup extends BroadcastReceiver {
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_FPS_INFO, false);
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
+        }
+        // back and recents
+        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_SWAP_BACK_RECENTS, true);
+        if (enabled) {
+            restore(SwapBackRecents.getFile(), "1");
         }
         VibratorStrengthPreference.restore(context);
 

@@ -43,7 +43,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
-import com.android.internal.util.potato.FileUtils;
+//import com.android.internal.util.potato.FileUtils;
 import com.potato.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends PreferenceFragment
@@ -56,13 +56,14 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_NIGHT_SWITCH = "night";
     public static final String KEY_ADAPTIVE_SWITCH = "adaptive";
     public static final String KEY_ONEPLUS_SWITCH = "oneplus";
-
+    public static final String KEY_SWAP_BACK_RECENTS = "swap_back_recents";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_FPS_INFO = "fps_info";
 
     private static SwitchPreference mFpsInfo;
     private static TwoStatePreference mHBMModeSwitch;
     private static TwoStatePreference mDCModeSwitch;
+    private TwoStatePreference mSwapBackRecents;
     private ListPreference mTopKeyPref;
     private ListPreference mMiddleKeyPref;
     private ListPreference mBottomKeyPref;
@@ -87,6 +88,11 @@ public class DeviceSettings extends PreferenceFragment
         mBottomKeyPref = (ListPreference) findPreference(Constants.NOTIF_SLIDER_BOTTOM_KEY);
         mBottomKeyPref.setValueIndex(Constants.getPreferenceInt(getContext(), Constants.NOTIF_SLIDER_BOTTOM_KEY));
         mBottomKeyPref.setOnPreferenceChangeListener(this);
+
+        mSwapBackRecents = (TwoStatePreference) findPreference(KEY_SWAP_BACK_RECENTS);
+        mSwapBackRecents.setEnabled(SwapBackRecents.isSupported());
+        mSwapBackRecents.setChecked(SwapBackRecents.isCurrentlyEnabled(this.getContext()));
+        mSwapBackRecents.setOnPreferenceChangeListener(new SwapBackRecents());
 
         mDCModeSwitch = (TwoStatePreference) findPreference(KEY_DC_SWITCH);
         mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
