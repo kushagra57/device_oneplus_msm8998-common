@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.derp.device.DeviceSettings;
+package com.potato.device.DeviceSettings;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -24,7 +24,7 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.preference.PreferenceManager;
 
-import com.derp.device.DeviceSettings.DeviceSettings;
+import com.potato.device.DeviceSettings.DeviceSettings;
 
 @TargetApi(24)
 public class DCModeTileService extends TileService {
